@@ -8,7 +8,7 @@
  *
  * Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
  * @returns {Object} object - API Gateway Lambda Proxy Output Format
- * 
+ * this is a comment to test the github
  */
 
 export const helloWorldHandler = async (event, context) => {
