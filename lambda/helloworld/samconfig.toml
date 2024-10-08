@@ -1,0 +1,21 @@
+version = 0.1
+[ZackPersonal.deploy.parameters]
+stack_name = "helloworld"
+resolve_s3 = true
+s3_prefix = "helloworld"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []
+
+[default.deploy.parameters]
+stack_name = "helloWorld"
+resolve_s3 = true
+s3_prefix = "helloWorld"
+region = "us-east-1"
+profile = "ZackPersonal"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []
