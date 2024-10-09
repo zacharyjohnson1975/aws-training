@@ -15,7 +15,7 @@ export const helloWorldHandler = async (event, context) => {
     const response = {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'hello world this is my first locally developed lambda function 3',
+        message: 'hello world this is my first locally developed lambda function 3', event: event,  context: context,
       })
     };
 

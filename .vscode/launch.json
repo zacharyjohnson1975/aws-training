@@ -3,10 +3,25 @@
         {
             "type": "aws-sam",
             "request": "direct-invoke",
-            "name": "helloworld:HelloWorldFunction (nodejs20.x)",
+            "name": "writeToS3:WriteToS3Function (nodejs20.x)",
             "invokeTarget": {
                 "target": "template",
-                "templatePath": "${workspaceFolder}/lambda/helloworld/template.yaml",
+                "templatePath": "${workspaceFolder}/lambda/writeToS3/template.yaml",
+                "logicalId": "WriteToS3Function"
+            },
+            "lambda": {
+                "payload": {},
+                "environmentVariables": {},
+                "runtime": "nodejs20.x"
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "helloWorld:HelloWorldFunction (nodejs20.x)",
+            "invokeTarget": {
+                "target": "template",
+                "templatePath": "${workspaceFolder}/lambda/helloWorld/template.yaml",
                 "logicalId": "HelloWorldFunction"
             },
             "lambda": {
