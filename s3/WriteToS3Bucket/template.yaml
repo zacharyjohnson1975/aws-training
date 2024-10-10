@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  writeToS3Bucket
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  WriteToS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: writetos3
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+  WriteToS3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WriteToS3Bucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 's3:*'
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref WriteToS3Bucket
+                - /*
+            Principal: {
+              "AWS": "arn:aws:iam::235494809591:role/writeToS3-WriteToS3FunctionRole-fK5TZPGIxYxX"
+            }
+
+Outputs:
+  Complete:
+    Description: "Done"
+    Value: "Done"

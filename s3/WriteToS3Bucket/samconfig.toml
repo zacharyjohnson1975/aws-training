@@ -1,0 +1,9 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "writeToS3Bucket"
+resolve_s3 = true
+s3_prefix = "writeToS3Bucket"
+region = "us-east-1"
+profile = "ZackPersonal"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
