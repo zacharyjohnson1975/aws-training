@@ -16,16 +16,18 @@ const S3 = new AWS.S3();
 export const writeToS3Handler = async (event, context) => {
   try
   {
+    let body = JSON.parse(event.body)
+
     const fileToUpload = {
-      userId:"123456",
-      email:"enrico@gmail.com",
-      city:"London",
-      country:"UK"
+      userId:body.userId,
+      email:body.email,
+      city:body.city,
+      country:body.country
     }
 
     const params = {
       Bucket: 'writetos3',
-      Key: `test.json`,
+      Key: body.fileName,
       Body: JSON.stringify(fileToUpload),
       ContentType: 'application/json; charset=utf-8'
     }
